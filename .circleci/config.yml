@@ -51,7 +51,9 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-  - maven/test:
+  maven_test:
+    jobs:
+      - maven/test:
           command: '-X compile test'
           executor: java17
   deploy:
