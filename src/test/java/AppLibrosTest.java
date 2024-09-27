@@ -9,6 +9,7 @@ public class AppLibrosTest {
     public void testAlgoQueDeberiaEstarBien() {
         Assertions.assertEquals(1, 1);
         Assertions.assertEquals(2, 2);
+        Assertions.assertEquals(3, 3);
     }
 
 
