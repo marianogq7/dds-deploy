@@ -10,7 +10,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         echo 'Construyendo imagen de Docker...'
-        sh 'docker build -t alvarogq/libros:latest'
+        sh 'docker build -t alvarogq/libros:latest . '
       }
     }
   }
