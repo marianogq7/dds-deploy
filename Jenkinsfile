@@ -7,6 +7,14 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('SonarQube Analysis') {
+            steps {
+                echo 'Ejecutando análisis con SonarQube...'
+                withCredentials([usernamePassword(credentialsId: 'sonarqube_credentials', usernameVariable: 'SONAR_USER', passwordVariable: 'SONAR_PASSWORD')]) {
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=libros -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=$SONAR_USER -Dsonar.password=$SONAR_PASSWORD'
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 echo 'Construyendo imagen de Docker...'
