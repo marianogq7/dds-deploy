@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Ejecutando análisis con SonarQube...'
                 withCredentials([usernamePassword(credentialsId: 'sonarqube_credentials', usernameVariable: 'SONAR_USER', passwordVariable: 'SONAR_PASSWORD')]) {
-                    sh 'mvn sonar:sonar -Dsonar.projectKey=libros -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=$SONAR_USER -Dsonar.password=$SONAR_PASSWORD -Dsonar.sources=src -Dsonar.token=sqa_291c1a7eea0fc47bfa53591226a1ca0b80da2595' 
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=libros -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=$SONAR_USER -Dsonar.password=$SONAR_PASSWORD -Dsonar.sources=src/main -Dsonar.token=sqa_291c1a7eea0fc47bfa53591226a1ca0b80da2595' 
                 }
             }
         }
